@@ -98,24 +98,22 @@ Here are some of my features.
 	\>hi =>  That's it. I'm not talking.... until you apologize   
 
 5.substitution and change the personal pronouns:    
-   	EX:   
-	>WHat's your NamE   =    what is your name   
-   	>i'm good    		=    i am good   
-    EX:    
-	>Why don't you love me? => You want me to love you?   
-	>say i'm good => "You are good!!!"   
+  EX:   
+	\>WHat's your NamE   =    what is your name   
+   	\>i'm good    		=    i am good   
+	EX:    
+	\>Why don't you love me? => You want me to love you?   
+	\>say i'm good => "You are good!!!"   
 
 6. keep asking   
 	EX:   
-	>I bought a new hat =>oh what color is your new hat   
-	>red =>red is a pretty color for a hat   
+	\>I bought a new hat =>oh what color is your new hat   
+	\>red =>red is a pretty color for a hat   
 
-	>what is your xx? {try it yourself}   
-	>waht is my yy? {try it yourself}   
+	\>what is your xx? {try it yourself}   
+	\>waht is my yy? {try it yourself}   
 
 
 Reference website:   
 	[https://www.smallsurething.com/implementing-the-famous-eliza-chatbot-in-python/](https://www.smallsurething.com/implementing-the-famous-eliza-chatbot-in-python/)   
-	[https://www.rivescript.com/](git remote add origin https://github.com/FongX777/simple-rivescript-chatbot.git git push -u origin master)
-
-
+	[https://www.rivescript.com/](https://www.rivescript.com/)  
