@@ -25,11 +25,11 @@ in the ./riveStart.py, help me start the rivescript and the files above
 
 ## Detail
 
-in the rstute/hello.rive,
-	- "+" is a trigger to match the user's input
-	- "-" is the reply from the bot
-	- "\*" is a wildcard char to match unpredictable input
-	- "{person}" is the substitution of the person pronoun (you -> me)
+in the rstute/hello.rive,  
+	- "+" is a trigger to match the user's input  
+	- "-" is the reply from the bot  
+	- "\*" is a wildcard char to match unpredictable input  
+	- "{person}" is the substitution of the person pronoun (you -> me)  
 	
 more infomation on [rivescript](https://www.rivescript.com/)
 
