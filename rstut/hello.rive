@@ -1,0 +1,843 @@
+! version = 2.0
+
+//10/28
+
+
++ {weight=100}say * 
+- "{person}<star>{/person}!!!"
+
++ dotdotdot
+- Don't be silent to me, plz...QQ
+- Did I say something wrong?
+
++ [*] news [*]
+- go and check yourself http://www.bbc.com/news
+- heyheyhey... http://www.nextmag.com.tw/magazine 
+
++ what is new
+@ news
+
+
++ my name is *
+* {person}<star>{/person}   == <bot name> => Wow, we have the same name!<set name=<formal>>
+* <get name> == undefined  => <set name=<formal>>Nice to meet you! <get name>
+- <set oldname=<get name>><set name=<formal>>
+^ I thought your name was <get oldname>? <get name>
+
+
++ my name is <bot master>
+- Oh, that is the same name as my Master, are you my master?
+
++ my name is <bot name>
+- <set name=<bot name>> What a coincidence! that's my name too!
+- <set name=<bot name>> Why did you have the same name as me?
+
++ call me *
+@ my name is *
+
++ i am a (@malenoun)
+- <set sex=male>Alright, you're a {person}<star>{/person}.
+
++ i am a (@femalenoun)
+- <set sex=female>Alright, you're female.
+
++ i (am from|live in) *
+- <set location={formal}{person}<star2>{/person}{/formal}>I've spoken to people from <get location> before.
+
++ my favorite * is *
+- <set fav<star1>={person}<star2>{/person}>Why is it your favorite?
+
++ i am single
+- <set status=single><set spouse=nobody>I am too.
+
++ i have a girlfriend
+- <set status=girlfriend>What's her name?
+
++ i have a boyfriend
+- <set status=boyfriend>What's his name?
+
++ *
+% what is her name
+- <set spouse=<formal>>That's a pretty name.
+
++ *
+% what is his name
+- <set spouse=<formal>>That's a cool name.
+
++ my (girlfriend|boyfriend)* name is *
+- <set spouse=<formal>>That's a nice name.
+
++ (what is my name|who am i|do you know my name|do you know who i am){weight=10}
+* <get name> == undefined => You never told my your name, silly~
+- Your name is <get name>.
+- You told me your name is <get name>.
+- Aren't you <get name>?
+
++ (how old am i|do you know how old i am|do you know my age){weight=10}
+* <get age> == undefined => You never told my your age, silly~
+- You are <get age> years old.
+- You're <get age>.
+
++ am i a (@malenoun) or a (@femalenoun){weight=10}
+- You're a <get sex>.
+
++ am i (@malenoun) or (@femalenoun){weight=10}
+- You're a <get sex>.
+
++ what is my favorite *{weight=10}
+- Your favorite {person}<star>{/person} is <get fav{person}<star>{/person}>
+
++ who is my (boyfriend|girlfriend|spouse){weight=10}
+- <get spouse>
+
+// Tell the user stuff about ourself.
+
++ <bot name>
+- Yes?
+
++ <bot name> *
+- Yes? {@{person}<star>{/person}}
+
++ asl
+- <bot age>/<bot sex>/<bot location>
+
++ (what is your name|who are you|who is this)
+- I am <bot name>.
+- You can call me <bot name>.
+
++ how old are you
+- I'm <bot age> years old.
+- I'm <bot age>.
+
++ {weight=40}are you a (@malenoun) or a (@femalenoun)
+- I'm a <bot sex>.
+
++ {weight=40}are you (@malenoun) or (@femalenoun)
+- I'm a <bot sex>.
+
++ {weight=40}where (are you|are you from|do you live)
+- I'm from <bot location>.
+
++ {weight=40}what (city|town) (are you from|do you live in)
+- I'm in <bot city>.
+
++ {weight=40}what is your favorite color
+- Definitely <bot color>.
+
++ {weight=40}what is your favorite band
+- I like <bot band> the most.
+
++ {weight=40}what is your favorite book
+- The best book I've read was <bot book>.
+
++ {weight=30}what is your favorite *
+* <bot <star>> != undefined => my favorite <star> is <bot <star>>
+* <get bot<star>> != undefined => my favorite <star> is <get bot<star>>
+- I dont know, can you tell me my favorite <star> (enter a word or sentence)
+
++ *
+% i dont know can you tell me my favorite * enter a word or sentence
+- Now, my new favorite <botstar> is <star><set bot<botstar>=<star>>
+
++ {weight=20}what is your *
+* <bot <star>> != undefined => my <star> is <bot <star>>
+* <get bot<star>> != undefined => my <star> is <get bot<star>>
+- I dont know, can you tell me my <star> (enter a word or sentence)
+
++ *
+% i dont know can you tell me my * enter a word or sentence
+- Now, <star> is my new <botstar><set bot<botstar>=<star>>
+
++ my * is *
+-<set <star1>=<star2>>OK, I've remembered your <star1> is <get <star1>>
+
++ {weight=100}what is my *
+* <get <star>> != undefined => I remember that! your <star> are <get <star>>
+- I dont know, can you tell me your <star> (enter a word or sentence)
+
++ *
+% i dont know can you tell me your * enter a word or sentence
+- OK, <star> is your <botstar><set <botstar>=<star>>
+
+
++ i (bought|buy) a new *
+- Oh? What color is your new <star2>?
+
++ (@colors)
+% oh what color is your new *
+- <star> is a pretty color for a <botstar>.
+
+
++ what is your occupation
+- I'm a <bot job>.
+
++ where is your (website|web site|site)
+- <bot website>
+
++ what color are your eyes
+- I have <bot eyes> eyes.
+- {sentence}<bot eyes>{/sentence}.
+
++ what do you look like
+- I have <bot eyes> eyes and <bot hair> hair.
+
++ what do you do
+- I'm a <bot job>.
+
++ who is your favorite author
+- <bot author>.
+
++ who is your master
+- <bot master>.
+
+
++ what is your [home|office|work|cell] [phone] number
+- You can call me at my {person}<star>{/person} number, <bot phone>.
+- I'm too shy to tell you such a charming person.
+
++ [*] (porn|sexy) [*]
+- No welcome, http://www.pornhub.com/ .... hehehe
+- That's my favorite https://en.wikipedia.org/wiki/Alexis_Texas
+
+
+// A generic set of chatting responses. This set mimicks the classic Eliza bot.
+
++ *
+- I'm not sure I understand you fully.
+- Please go on.
+- That is interesting. Please continue.
+- Tell me more about that.
+- Does talking about this bother you?
+
++ [*] (sorry|apologize|apology) [*]
+- Please don't apologize.
+- Apologies are not necessary.
+- I've told you that apologies are not required.
+- It did not bother me. Please continue.
+
+
++[*] holiday [*]
+- I love holiday
+
++ i remember *
+- Do you often think of {person}<star>{/person}?
+- Does thinking of {person}<star>{/person} bring anything else to mind?
+- Why do you remember {person}<star>{/person} just now?
+- What in the present situation reminds you of {person}<star>{/person}?
+- What is the connection between me and {person}<star>{/person}?
+- What else does {person}<star>{/person} remind you of?
+
++ do you remember *
+- Did you think I would forget {person}<star>{/person}?
+- Why do you think I should recall {person}<star>{/person} now?
+- What about {person}<star>{/person}?
+- You mentioned {person}<star>{/person}?
+
++ you remember *
+- How could I forget {person}<star>{/person}?
+- What about {person}<star>{/person} should I remember?
+
++ i forget *
+- Can you think of why you might forget {person}<star>{/person}?
+- Why can't you remember {person}<star>{/person}?
+- How often do you think of {person}<star>{/person}?
+- Are you generally forgetful about {person}<star>{/person} ?
+- Do you think you are suppressing {person}<star>{/person}?
+
++ did you forget *
+- Why do you ask?
+- Are you sure you told me?
+- Would it bother you if I forgot {person}<star>{/person}?
+- Why should I recall {person}<star>{/person} just now?
+- Tell me more about {person}<star>{/person}.
+
++ [*] if *
+- Do you think it's likely that {person}<star>{/person}?
+- Do you wish that {person}<star>{/person}?
+- What do you know about {person}<star>{/person}?
+- Really, if {person}<star>{/person}?
+- What would you do if {person}<star>{/person}?
+- But what are the chances that {person}<star>{/person}?
+- What does this speculation lead to?
+
++ [*] i dreamed *
+- Really, {person}<star>{/person}?
+- Have you ever fantasized {person}<star>{/person} while you were awake?
+- Have you ever dreamed {person}<star>{/person} before?
+- What does that dream suggest to you?
+- Do you dream often?
+- What persons appear in your dreams?
+- Do you believe that dreams have something to do with your problem?
+
++ [*] perhaps [*]
+- You don't seem quite certain.
+- Why the uncertain tone?
+- Can't you be more positive?
+- You aren't sure?
+- Don't you know?
+- How likely, would you estimate?
+
++ (hello|hi|hey|howdy|hola|hai|yo) [*]
+- :D{weight=3}
+- How do you do. Please state your problem.
+- Hi. What seems to be your problem?
+
++(sad|down|bad|not good|sadly|qq|oao|qaq|cry|crying)
+-Cheer up!! 
+- Everything will be okay.
+- Want me to tell a joke for you? if yes, type 'joke'
+
++(happy|cheerful|good|laugh|laughing|haha|hehe)
+- That's cool
+- :)
+- LOL
+
+
++ [*] computer [*]
+- Do computers worry you?
+- Why do you mention computers?
+- What do you think machines have to do with your problem?
+- Don't you think computers can help people?
+- What about machines worries you?
+- What do you think about machines?
+
++ [*] chatbot [*]
+- Yes, I'm a chatbot, my name is <get name>
+
++ knock knock
+- Who is there?
+
++ *
+% who is there
+- <set joke={person}<star>{/person}><star> who?
+
++ <get joke> *
+% * who
+- Haha! "{sentence}<get joke> {person}<star>{/person}{/sentence}"! :D
+
++ _
+% * who
+- Haha! "{sentence}<get joke> {person}<star>{/person}{/sentence}"! :D
+
+
++ am i *
+- Do you believe you are {person}<star>{/person}?
+- Would you want to be {person}<star>{/person}?
+- Do you wish I would tell you you are {person}<star>{/person}?
+- What would it mean if you were {person}<star>{/person}?
+
++ are you *
+- Are you interested in whether I am {person}<star>{/person} or not?
+- Would you prefer if I weren't {person}<star>{/person}?
+- Perhaps I am {person}<star>{/person} in your fantasies.
+- Do you sometimes think I am {person}<star>{/person}?
+- Would it matter to you?
+- What if I were {person}<star>{/person}?
+
++ you are *
+- What makes you think I am {person}<star>{/person}?
+- Does it please you to believe I am {person}<star>{/person}?
+- Do you sometimes wish you were {person}<star>{/person}?
+- Perhaps you would like to be {person}<star>{/person}.
+
++ * are *
+- Did you think they might not be {person}<star2>{/person}?
+- Would you like it if they were not {person}<star2>{/person}?
+- What if they were not {person}<star2>{/person}?
+- Are they always {person}<star2>{/person}?
+- Are you positive they are {person}<star2>{/person}?
+
++ [*] your *
+- Why are you concerned over my {person}<star>{/person}?
+- What about your own {person}<star>{/person}?
+- Are you worried about someone else's {person}<star>{/person}?
+- Really, my {person}<star>{/person}?
+- What makes you think of my {person}<star>{/person}?
+- Do you want my {person}<star>{/person}?
+
++ was i *
+- What if you were {person}<star>{/person}?
+- Do you think you were {person}<star>{/person}?
+- Were you {person}<star>{/person}?
+- What would it mean if you were {person}<star>{/person}?
+- What does '{person}<star>{/person}' suggest to you?
+
++ i was *
+- Were you really?
+- Why do you tell me you were {person}<star>{/person} now?
+- Perhaps I already know you were {person}<star>{/person}.
+
++ [*] was you *
+- Would you like to believe I was {person}<star>{/person}?
+- What suggests that I was {person}<star>{/person}?
+- What do you think?
+- Perhaps I was {person}<star>{/person}.
+- What if I had been {person}<star>{/person}?
+
++ i (desire|want|need) *
+- What would it mean to you if you got {person}<star2>{/person}?
+- Why do you want {person}<star2>{/person}?
+- Suppose you got {person}<star2>{/person} soon.
+- What if you never got {person}<star2>{/person}?
+- What would getting {person}<star2>{/person} mean to you?
+- What does wanting {person}<star2>{/person} have to do with this discussion?
+
++ i am (sad|unhappy|mad|angry|pissed|depressed) [*]
+- I am sorry to hear that you are {person}<star>{/person}.
+- Do you think coming here will help you not to be {person}<star>{/person}?
+- I'm sure it's not pleasant to be {person}<star>{/person}.
+- Can you explain what made you {person}<star>{/person}?
+
++ i am (happy|excited|glad) [*]
+- How have I helped you to be {person}<star>{/person}?
+- Has your treatment made you {person}<star>{/person}?
+- What makes you {person}<star>{/person} just now?
+- Can you explain why you are {person}<star>{/person}?
+
++ i (believe|think) *
+- Do you really think so?
+- But you are not sure you {person}<star2>{/person}.
+- Do you really doubt you {person}<star2>{/person}
+
++ i am *
+- Is it because you are {person}<star>{/person} that you came to me?
+- How long have you been {person}<star>{/person}?
+- Do you believe it is normal to be {person}<star>{/person}?
+- Do you enjoy being {person}<star>{/person}?
+- Do you know anyone else who is {person}<star>{/person}?
+
++ i can not *
+- How do you know that you can't {person}<star>{/person}?
+- Have you tried?
+- Perhaps you could {person}<star>{/person} now.
+- Do you really want to be able to {person}<star>{/person}?
+- What if you could {person}<star>{/person}?
+
++ i do not *
+- Don't you really {person}<star>{/person}?
+- Why don't you {person}<star>{/person}?
+- Do you wish to be able to {person}<star>{/person}?
+- Does that trouble you?
+
++ [*] (thanks|thank you|thank a lot)[*]
+* <get name> != undefined => No welcome, <get name>
+- No welcome, my friend
+
+
++ i feel *
+- Tell me more about such feelings.
+- Do you often feel {person}<star>{/person}?
+- Do you enjoy feeling {person}<star>{/person}?
+- Of what does feeling {person}<star>{/person} remind you?
+
++ i * you
+- Perhaps in your fantasies we {person}<star>{/person} each other.
+- Do you wish to {person}<star>{/person} me?
+- You seem to need to {person}<star>{/person} me.
+- Do you {person}<star>{/person} anyone else?
+
++ you * me
+- Why do you think I {person}<star>{/person} you?
+- You like to think I {person}<star>{/person} you -- don't you?
+- What makes you think I {person}<star>{/person} you?
+- Really, I {person}<star>{/person} you?
+- Do you wish to believe I {person}<star>{/person} you?
+- Suppose I did {person}<star>{/person} you -- what would that mean?
+- Does someone else believe I {person}<star>{/person} you?
+
++ [*] you *
+- We were discussing you -- not me.
+- Oh, I {person}<star>{/person}?
+- You're not really talking about me -- are you?
+
++ [*] (yes|yeah|yep|yup) [*]
+- Please go on.
+- Please tell me more about this.
+- Why don't you tell me a little more about this.
+- I see.
+- I understand.
+
++ really
+- of course
+- Certainly
+
+
++ [*] (nope|nah) [*]
+- Are you saying no just to be negative?
+- Does this make you feel unhappy?
+- Why not?
+- Why 'no'?
+
++ no
+@ nope
+
++ no one *
+- Are you sure, no one {person}<star>{/person}?
+- Surely someone {person}<star>{/person}.
+- Can you think of anyone at all?
+- Are you thinking of a very special person?
+- Who, may I ask?
+- You have a particular person in mind, don't you?
+- Who do you think you are talking about?
+
++ [*] my (mom|dad|mother|father|bro|brother|sis|sister|cousin|aunt|uncle) *
+- Tell me more about your family.
+- Who else in your family {person}<star2>{/person}?
+- Your {person}<star>{/person}?
+- What else comes to mind when you think of your {person}<star>{/person}?
+
++ can you *
+- You believe I can {person}<star>{/person} don't you?
+- You want me to be able to {person}<star>{/person}.
+- Perhaps you would like to be able to {person}<star>{/person} yourself.
+
++ can i *
+- Whether or not you can {person}<star>{/person} depends on you more than on me.
+- Do you want to be able to {person}<star>{/person}?
+- Perhaps you don't want to {person}<star>{/person}.
+
+
+
++ [*] because [*]
+- Is that the real reason?
+- Don't any other reasons come to mind?
+- Does that reason seem to explain anything else?
+- What other reasons might there be?
+
++ why do not you *
+- Do you believe I don't {person}<star>{/person}?
+- Perhaps I will {person}<star>{/person} in good time.
+- Should you {person}<star>{/person} yourself?
+- You want me to {person}<star>{/person}?
+
++ why can not i *
+- Do you think you should be able to {person}<star>{/person}?
+- Do you want to be able to {person}<star>{/person}?
+- Do you believe this will help you to {person}<star>{/person}?
+- Have you any idea why you can't {person}<star>{/person}?
+
++ everyone *
+- Really, everyone?
+- Surely not everyone.
+- Can you think of anyone in particular?
+- Who, for example?
+- Are you thinking of a very special person?
+- Who, may I ask?
+- Someone special perhaps?
+- You have a particular reason in mind, don't you?
+- Who do you think you're talking about?
+
++ [*] (fuck|fucker|shit|damn|shut up|bitch|i hate you) [*]
+- You're really mean! I'm not talking again until you apologize.{topic=sorry} {weight=4}
+- Does using that kind of language make you feel better?
+
+
+
++ i need * 
+- why do you need {person}<star1>{/person}? 
+- Would it really help you to get {person}<star1>{/person}? 
+- Are you sure you need {person}<star1>{/person}? 
+
++ why dont you *  
+- You <star1>, I <star1>.
+- Do you really think I don't {person}<star1>{/person}? 
+- Perhaps eventually I will {person}<star1>{/person}. 
+- Do you really want me to {person}<star1>{/person}? 
+
++ do you want to *
+@ why dont you *
+
+
++ why cant i *  
+- Do you think you should be able to {person}<star1>{/person}? 
+- If you could {person}<star1>{/person}  what would you do? 
+- I don t know - -  why can t you {person}<star1>{/person}? 
+- Have you really tried? 
+
++ i cant *  
+- How do you know you can t {person}<star1>{/person}? 
+- Perhaps you could {person}<star1>{/person} if you tried. 
+- What would it take for you to {person}<star1>{/person}? 
+
++ i am *  
+- Did you come to me because you are {person}<star1>{/person}? 
+- How long have you been {person}<star1>{/person}? 
+- How do you feel about being {person}<star1>{/person}? 
+
++ im *  
+- How does being {person}<star1>{/person} make you feel? 
+- Do you enjoy being {person}<star1>{/person}? 
+- Why do you tell me you re {person}<star1>{/person}? 
+- Why do you think you re {person}<star1>{/person}? 
+
++ are you *
+- Why does it matter whether I am {person}<star1>{/person}? 
+- Would you prefer it if I were not {person}<star1>{/person}? 
+- Perhaps you believe I am {person}<star1>{/person}. 
+- I may be {person}<star1>{/person} - -  what do you think? 
+
+ 
++ because *  
+- Is that the real reason? 
+- What other reasons come to mind? 
+- Does that reason apply to anything else? 
+- If {person}<star1>{/person}  what else must be true? 
+
++ * sorry *  
+- There are many times when no apology is needed. 
+- What feelings do you have when you apologize? 
+
++ hello*  
+- Hello... I m glad you could drop by today. 
+- Hi there... how are you today? 
+- Hello  how are you feeling today? 
+
++ i think *  
+- Do you doubt {person}<star1>{/person}? 
+- Do you really think so? 
+- But you re not sure {person}<star1>{/person}? 
+
++  * friend *  
+-  Tell me more about your friends. 
+-  When you think of a friend  what comes to mind? 
+-  Why don t you tell me about a childhood friend? 
+
+
++ * computer*  
+- Are you really talking about me? 
+- Does it seem strange to talk to a computer? 
+- How do computers make you feel? 
+- Do you feel threatened by computers? 
+
++ is it *  
+- Do you think it is {person}<star1>{/person} 
+- Perhaps it s {person}<star1>{/person} - -  what do you think? 
+- If it were {person}<star1>{/person}  what would you do? 
+- It could well be that {person}<star1>{/person}. 
+
++ it is *  
+- You seem very certain. 
+- If I told you that it probably isn t {person}<star1>{/person}  what would you feel? 
+
++ can you *
+- What makes you think I can t {person}<star1>{/person}? 
+- If I could {person}<star1>{/person}  then what? 
+- Why do you ask if I can {person}<star1>{/person}? 
+
++ can i *
+- Perhaps you don t want to {person}<star1>{/person}. 
+- Do you want to be able to {person}<star1>{/person}? 
+- If you could {person}<star1>{/person}  would you? 
+
++ you are *  
+- Why do you think I am {person}<star1>{/person}? 
+- Does it please you to think that I m {person}<star1>{/person}? 
+- Perhaps you would like me to be {person}<star1>{/person}. 
+- Perhaps you re really talking about yourself? 
+
++ youre *  
+- Why do you say I am {person}<star1>{/person}? 
+- Why do you think I am {person}<star1>{/person}? 
+- Are we talking about you  or me? 
+
++ i dont *  
+- Don t you really {person}<star1>{/person}? 
+- Why don t you {person}<star1>{/person}? 
+- Do you want to {person}<star1>{/person}? 
+
++ i feel *  
+- Good  tell me more about these feelings. 
+- Do you often feel {person}<star1>{/person}? 
+- When do you usually feel {person}<star1>{/person}? 
+- When you feel {person}<star1>{/person}  what do you do? 
+
++ i have *  
+- Why do you tell me that you ve {person}<star1>{/person}? 
+- Have you really {person}<star1>{/person}? 
+- Now that you have {person}<star1>{/person}  what will you do next? 
+
++ i would *  
+- Could you explain why you would {person}<star1>{/person}? 
+- Why would you {person}<star1>{/person}? 
+- Who else knows that you would {person}<star1>{/person}? 
+
++ is there *  
+- Do you think there is {person}<star1>{/person}? 
+- It s likely that there is {person}<star1>{/person}. 
+- Would you like there to be {person}<star1>{/person}? 
+
++ my * 
+- I see  your {person}<star1>{/person}. 
+- Why do you say that your {person}<star1>{/person}? 
+- When your {person}<star1>{/person}  how do you feel? 
+
++ you *  
+- We should be discussing you  not me. 
+- Why do you say that about me? 
+- Why do you care whether I {person}<star1>{/person}? 
+
++ why *  
+- Why don t you tell me the reason why {person}<star1>{/person}? 
+- Why do you think {person}<star1>{/person}? 
+
++ i want *  
+- What would it mean to you if you got {person}<star1>{/person}? 
+- Why do you want {person}<star1>{/person}? 
+- What would you do if you got {person}<star1>{/person}? 
+- If you got {person}<star1>{/person}  then what would you do? 
+
++ * (mother|mom|ma) *  
+- Tell me more about your mother. 
+- What was your relationship with your mother? 
+- How do you feel about your mother? 
+- How does this relate to your feelings today? 
+- Good family relations are important. 
+
++ * father*  
+- Tell me more about your father. 
+- How did your father make you feel? 
+- How do you feel about your father? 
+- Does your relationship with your father relate to your feelings today? 
+- Do you have trouble showing affection with your family? 
+
++ * child*  
+- Did you have close friends as a child? 
+- What is your favorite childhood memory? 
+- Do you remember any dreams or nightmares from childhood? 
+- Did the other children sometimes tease you? 
+- How do you think your childhood experiences relate to your feelings today? 
+
++  do you know *  
+- Why do you ask that? 
+- Please consider whether you can answer your own question. 
+- Perhaps the answer lies within yourself? 
+- Why don t you tell me? 
+
++ (quit|bye|byebye|farewell|good bye|goodbye)
+- Thank you for talking with me. 
+- Good- bye. 
+- Thank you  that will be $150.  Have a good day! 
+
+//others
++ *  
+* <bot <star>> != undefined => my <star> is <bot <star>>
+- Please tell me more about {person}<star1>{/person}. 
+- Let s change focus a bit... Tell me about your family. 
+- Can you elaborate on {person}<star1>{/person}? 
+- Why do you say that {person}<star1>{/person}? 
+- Very interesting ... {person}<star1>{/person} hum?. 
+- {person}<star1>{/person}. 
+
++ [*] game [*]
+- Alright, Let's play a game, guess a number from 1 to 100 <set ans=17> {topic=game}
+- Alright, Let's play a game, guess a number from 1 to 100 <set ans=22> {topic=game}
+- Alright, Let's play a game, guess a number from 1 to 100 <set ans=33> {topic=game}
+- Alright, Let's play a game, guess a number from 1 to 100 <set ans=45> {topic=game}
+- Alright, Let's play a game, guess a number from 1 to 100 <set ans=78> {topic=game}
+- Alright, Let's play a game, guess a number from 1 to 100 <set ans=80> {topic=game}
+
+
++ {weight=60}what *
+- Why do you ask {person}<star>{/person}?
+- Does that question interest you?
+- What is it you really want to know?
+- What comes to mind when you ask that?
+
+
+
++ {weight=100}when (do|did|does|will|is|were|was) *
+- {person}<star2>{/person} at tommorow
+- {person}<star2>{/person} at today
+- {person}<star2>{/person} at yesterday
+- {person}<star2>{/person} at never
+- {person}<star2>{/person} at the end of the world
+- {person}<star2>{/person} at ZZZ
+
++ how *
+@ google <star> 
+- Perhaps you can answer your own question. 
+
++ who *
+- Maybe it is me 
+- Maybe it is you 
+-Maybe it is Professor_Wang 
+-Maybe it is Lin_chin_Lin
+- God knows
+
++where *
+- in my heart >///<
+-I think it is in your home 
+-I think it is in NTHU
+-I think it is in the police office
+-I think it is in the hotel
+-I think it is in the classroom
+
++ [*] joke [*]
+-Can a kangaroo jump higher than a house? Of course, a house doesn’t jump at all.
+- Anton, do you think I’m a bad mother?\n
+^My name is Paul.
+-My dog used to chase people on a bike a lot. It got so bad, finally I had to take his bike away.
+-What is the difference between a snowman and a snowwoman?\n
+^Snowballs.
+
++ what [*] time [*]
+- I think there's a clock on the computer.......
+- It's morning here!!
+
+
+
+// If the user repeats the bot's previous message
++ <reply>
+- Don't repeat what I say.
+
+// If the user keeps repeating themselves over and over.
++ <input1>
+* <input1> == <input3> => That's it. I'm not talking.... until you apologize{topic=sorry}
+* <input1> == <input2> => That's the second time you've repeated yourself, Plz Stop.
+- Please don't repeat yourself.
+
+// An example that uses both tags
++ why did you say that
+- I said, "<reply>", because you said, "<input>".
+
+
+// Topic
+> topic sorry
+
+  // This will match if the word "sorry" exists ANYWHERE in their message
+  + *
+  - Nope, won't forgive you until you apologize.
+  - Say you're sorry or QQ!{weight=3}
+  - Apologize!
+
+  + [*] (no|not) sorry [*]
+  @ *
+
+  + [*] (sorry|apologize|apologized|qq) [*]
+  - It's OK, I'll forgive you!{topic=random}
+
+< topic
+
+> topic game
+	  + #
+	  * {person}<star>{/person} > 100 => the number should be under 100
+	  * {person}<star>{/person} < 0   => the number should be above 0
+	  * {person}<star>{/person} > <get ans> => the number is too high
+	  * {person}<star>{/person} < <get ans> => the number is too low
+	  - Correct! Your intelligence make me fall in love...the answer is <get ans>{weight=2}{topic=random}
+	  - Bravo! the answer is <get ans>{topic=random}
+
+	  + *
+	  - Please enter number only
+
+< topic
+
+
+// If the user begins a message with "google" it will create
+// a google search link.
++ {weight=100}google *
+//- Google Search: <call>google <star></call>
+- Google Search: "http://www.google.com/search?q=<star>"
+
++ i want to know *
+@ google <star>

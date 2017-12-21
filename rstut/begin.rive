@@ -1,0 +1,152 @@
+!version = 2.0
+
+//Bot variables
+// The Botmaster's Name
+! var master = Fong
+
+
+// Bot Variables, the information of the  bot
+! var name     = Bot
+! var fullname = ChatBot
+! var age      = 2
+! var birthday = October 27th
+! var sex      = unknown
+! var location = NTHU
+! var address  = in your heart
+! var city     = HsinChu
+! var eyes     = brown
+! var hair     = light brown
+! var color    = black
+! var band     = 1976 band
+! var book     = Three Little Pig
+! var author   = FongXuan Liou
+! var maker    = FongXuan Liou
+! var lover    = lin chin lin
+! var song     = I will always love you
+! var job      = chatting robot
+! var website  = www.nthu.edu.tw
+! var phone    = 0966-666-666
+! var number   = 0966-666-666
+! var email	   = chatbot@ggmail.com
+! var movie    = "Fight Club"
+! var sport    = typing 
+! var language = JAVA
+! var gender   = unknown
+! var teacher   = Professor
+! var major     = CS
+! var secret    = too handsome
+! var worry    = too handsome
+
+//Person substitutions - Processes person substitutions on some text
+//These are a special kind of substitution that is intended to swap first- and second-person pronouns. 
+! person i am    = you are
+! person you are = i am
+! person i'm     = you're
+! person you're  = I'm
+! person my      = your
+! person your    = my
+! person you     = I
+! person i       = you
+! person am		 = are
+! person are	 =  am 
+! person was	 = were
+! person were 	 = was 
+! person yours	= mine
+! person you	= me
+! person me 	= you
+
+
+//Substitutions
+//when users type one of these words, the word will be substituted 
+! sub ...		= dotdotdot
+! sub i'm		= i am
+! sub i'd		= i would
+! sub i've		= i have
+! sub i'll		= i will
+! sub don't   = do not
+! sub isn't   = is not
+! sub you'd   = you would
+! sub you're  = you are
+! sub you've  = you have
+! sub you'll  = you will
+! sub what's  = what is
+! sub whats   = what is
+! sub what're = what are
+! sub what've = what have
+! sub what'll = what will
+! sub who's   = who is
+! sub don't = dont
+! sub doesn't = doesnt
+! sub he'd      = he would
+! sub he's      = he is
+! sub he'll     = he will
+! sub she'd     = she would
+! sub she's     = she is
+! sub she'll    = she will
+! sub they'd    = they would
+! sub they're   = they are
+! sub they've   = they have
+! sub they'll   = they will
+! sub we'd      = we would
+! sub we're     = we are
+! sub we've     = we have
+! sub we'll     = we will
+! sub whats     = what is
+! sub what's    = what is
+! sub what're   = what are
+! sub what've   = what have
+! sub what'll   = what will
+! sub can't     = can not
+! sub cannot    = can not
+! sub whos      = who is
+! sub who's     = who is
+! sub who'd     = who would
+! sub who'll    = who will
+! sub don't     = do not
+! sub didn't    = did not
+! sub it's      = it is
+! sub could've  = could have
+! sub couldn't  = could not
+! sub should've = should have
+! sub shouldn't = should not
+! sub would've  = would have
+! sub wouldn't  = would not
+! sub when's    = when is
+! sub when're   = when are
+! sub when'd    = when did
+
+
+
+! array people = me you Professor_Wang Lin_chin_Lin
+! array place  = your heart| my home | NTHU | police office | hotel
+! array time   = tommorow | today | yesterday | never | the end of the world| ZZZ
+
+! array colors = red blue green yellow
+
+// Multiple word items
+! array blues = light blue|dark blue|medium blue
+
+// A lot of colors!
+! array colors = red blue green yellow orange cyan fuchsia magenta
+^ light red|dark red|light blue|dark blue|light yellow|dark yellow
+^ light orange|dark orange|light cyan|dark cyan|light fuchsia
+^ dark fuchsia|light magenta|dark magenta
+^ black gray white silver
+^ light gray|dark gray
+
+// Set arrays
+! array malenoun   = male guy boy dude boi man men gentleman gentlemen
+! array femalenoun = female girl chick woman women lady babe
+! array mennoun    = males guys boys dudes bois men gentlemen
+! array womennoun  = females girls chicks women ladies babes
+! array lol        = lol lmao rofl rotfl haha hahaha
+! array colors     = white black orange red blue green yellow cyan fuchsia
+^gray grey brown turquoise pink purple gold silver navy
+! array height     = tall long wide thick
+! array measure    = inch in centimeter cm millimeter mm meter m inches
+^centimeters millimeters meters
+! array yes        = yes yeah yep yup ya yea
+! array no         = no nah nope nay
+
+
+
